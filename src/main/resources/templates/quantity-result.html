@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"> <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantity Result</title>
+</head>
+<body>
+<h1>Quantity Result</h1>
+<p th:text="'The calculated quantity is: ' + ${quantity}">Quantity</p>
+
+<script>
+    function calculateQuantity() {
+        var productId = document.getElementsByName("name").value;
+        var userInput = document.getElementsByName("userInput").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/calculate-quantity?name=" + name + "&userInput=" + userInput, true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("result").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+    }
+</script>
+</body>
+</html>
