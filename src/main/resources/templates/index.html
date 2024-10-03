@@ -1,177 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-        }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        img {
-            vertical-align: middle;
-        }
-
-        .container {
-            position: relative;
-        }
-
-        .mySlides {
-            display: none;
-        }
-
-        .cursor {
-            cursor: pointer;
-        }
-
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 40%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        .caption-container {
-            text-align: center;
-            background-color: #222;
-            padding: 2px 16px;
-            color: white;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .column {
-            float: left;
-            width: 16.66%;
-        }
-
-        .demo {
-            opacity: 0.6;
-        }
-
-        .active .demo:hover {
-            opacity: 1;
-        }
-    </style>
 </head>
 <body>
-<div th:fragment="sidebar" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
-    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-success text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline">page</span>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+<div th:fragment="sidebar" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light" id="side">
+       <div>
+        <a href="/" >
+            <span class="mainmenu">Меню</span>
         </a>
-        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <ul class="menu" id="menu">
             <li class="nav-item">
-                <a href="/index" class="nav-link align-middle px-0 text-success">
-                    <span class="ms-1 d-none d-sm-inline">Home</span>
+                <a th:href="@{/}" class="menu">
+                    <span>Главная</span>
                 </a>
             </li>
             <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-success">
-                   <span class="ms-1 d-none d-sm-inline">Alcoholfree</span> </a>
+                <a href="#submenu1" data-bs-toggle="collapse" class="menu">
+                   <span>Безалкогольные напитки</span> </a>
             </li>
             <li>
-                <a href="#" class="nav-link px-0 align-middle text-success">
-                    <span>Alcohol</span></a>
+                <a href="#" class="menu">
+                    <span>Алкогольные напитки</span></a>
             </li>
             <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-success">
-                    <span>Coctails</span> </a>
+                <a href="#submenu3" data-bs-toggle="collapse" class="menu">
+                    <span>Коктейли</span> </a>
             </li>
             <li>
-                <a href="#food" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-success">
-                    <span class="ms-1 d-none d-sm-inline">Food</span> </a>
+                <a href="#food" data-bs-toggle="collapse" class="menu">
+                    <span>Еда</span> </a>
                 <ul class="collapse nav flex-column ms-1" id="food" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="/users" class="nav-link px-0"> <span class="d-none d-sm-inline">Food list</span></a>
+                        <a th:href="@{/food}" class="submenu"> <span>Список блюд</span></a>
                     </li>
                     <li>
-                        <a href="/calculate-quantity" class="nav-link px-0"> <span class="d-none d-sm-inline">Calculator</span></a>
+                        <a th:href="@{/quantity}" class="submenu"> <span>Калькулятор продуктов</span></a>
                     </li>
                 </ul>
             </li>
         </ul>
         <hr>
-
     </div>
-</div>
-
-<main>
-    <div class="container">
+    </div>
+<div th:fragment="gallery" class="container mt-5 col py-3">
+    <h1>Holiday Service приветствует!</h1>
         <div class="mySlides">
-            <div class="numbertext">1 / 23</div>
-            <img src="/static/img/свинина.jpg" style="width:100%">
+            <div class="numbertext">1 / 6</div>
+            <img th:src="@{/img/отдых.jpg}"  style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">2 / 6</div>
-            <img src="img_5terre_wide.jpg" style="width:100%">
+            <img th:src="@{/img/закуски.jpg}" style="width:90%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">3 / 6</div>
-            <img src="img_mountains_wide.jpg" style="width:100%">
+            <img th:src="@{/img/коктейли.jpg}" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">4 / 6</div>
-            <img src="img_lights_wide.jpg" style="width:100%">
+            <img th:src="@{/img/гриль.jpg}" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">5 / 6</div>
-            <img src="img_nature_wide.jpg" style="width:100%">
+            <img th:src="@{/img/овощи.jpg}" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">6 / 6</div>
-            <img src="img_snow_wide.jpg" style="width:100%">
+            <img th:src="@{/img/сникерс.jpg}" style="width:100%">
         </div>
-
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -183,55 +97,24 @@
 
         <div class="row">
             <div class="column">
-                <img class="demo cursor" src="/static/img/свинина.jpg" style="width:100%" onclick="currentSlide(1)" alt="Свинина на гриле">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Пять земель">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Горы и фьорды">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Северное сияние">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Природа и восход солнца">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Заснеженные горы">
+                <img class="demo cursor" th:src="@{/img/отдых.jpg}" style="width:10%" onclick="currentSlide(1)" alt="Отдых">
+
+                <img class="demo cursor" th:src="@{/img/закуски.jpg}" style="width:10%" onclick="currentSlide(2)" alt="Закуски">
+
+                <img class="demo cursor" th:src="@{/img/коктейли.jpg}" style="width:10%" onclick="currentSlide(3)" alt="Коктейли">
+
+                <img class="demo cursor" th:src="@{/img/гриль.jpg}" style="width:10%" onclick="currentSlide(4)" alt="Мясо на гриле">
+
+                <img class="demo cursor" th:src="@{/img/овощи.jpg}" style="width:10%" onclick="currentSlide(5)" alt="Овощи на гриле">
+
+                <img class="demo cursor" th:src="@{/img/сникерс.jpg}" style="width:10%" onclick="currentSlide(6)" alt="Сникерс">
             </div>
         </div>
     </div>
-</main>
-<script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-    // Вперед/назад элементы управления
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-    // Элементы управления миниатюрами изображений
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
-    }
-</script>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/calculator.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

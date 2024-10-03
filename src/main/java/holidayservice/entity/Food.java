@@ -20,6 +20,8 @@ public class Food {
     private String description;
     @Column(name = "food_unit")
     private double unit;
+    @Column(name = "food_image")
+    private String image;
 
   /*  @OneToMany()
     @JoinColumn(name = "id_food")

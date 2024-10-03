@@ -24,10 +24,10 @@ public class FoodController {
         model.addAttribute("foods", foodService.findAll());
         return "food";
     }
-    @GetMapping("/calculate-quantity")
-    public String calculateQuantity(@RequestParam String name, @RequestParam int userInput, Model model) {
-        double quantity = foodService.calculateQuantity(name, userInput);
-        model.addAttribute("quantity", quantity);
+    @GetMapping("/quantity")
+    public String calculateQuantity(Model model) {
+        List<Food> foods = foodService.findAll();
+        model.addAttribute("foods", foods);
         return "quantity-result";
     }
-}
+    }

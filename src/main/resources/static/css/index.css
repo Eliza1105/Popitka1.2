@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+  }
+  body{
+    background-image: url("https://media.istockphoto.com/id/1041326026/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BB%D0%B5%D0%B3%D0%BA%D0%B8%D0%B9-%D0%BD%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9-%D1%84%D0%BE%D0%BD.jpg?s=612x612&w=0&k=20&c=LMibjhlyCp1G-pdvCvMfir6m_3HziAvdvJUEEg60Jzc=");
+
+  }
+  #side{
+  min-height: 100vh;
+  }
+  .mainmenu{
+    color: #8A2BE2;
+    text-align: center;
+    padding-left: 20px;
+  font-family: fantasy;
+  text-decoration: underline;
+  line-height: 70px;
+  }
+  .menu{
+    color: rgba(50, 205, 50, 0.782);
+    text-align: left;
+  font-family: fantasy;
+  text-decoration: none;
+  line-height: 50px;
+  list-style-type: none;
+  }
+  .submenu{
+    color: rgba(33, 135, 33, 0.782);
+    text-align: right;
+    text-decoration: none;
+    line-height: 50px;
+  font-style: italic;
+  }
+  h1{
+    color: #8A2BE2;
+    text-align: center;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .mySlides {
+    display: none;
+   
+  }
+  
+  .cursor {
+    cursor: pointer;
+  }
+
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+ 
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev:hover,
+  .next:hover {
+    background-color: #8A2BE2;
+    color: #FFE4B5;
+  }
+  
+  .numbertext {
+    color: rgba(50, 205, 50, 0.782);
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 10%;
+  }
+  
+  .caption-container {
+    text-align: center;
+    background-color:rgba(50, 205, 50, 0.782);
+    padding: 2px 16px;
+    color: #FFE4B5;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }

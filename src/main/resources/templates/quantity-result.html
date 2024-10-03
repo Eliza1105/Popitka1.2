@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Quantity Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">-->
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+    <link th:href="@{/css/quantity.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
 </head>
 <body>
-<h1>Quantity Result</h1>
-<p th:text="'The calculated quantity is: ' + ${quantity}">Quantity</p>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+<div th:replace="index::sidebar"></div>
 
-<script>
-    function calculateQuantity() {
-        var productId = document.getElementsByName("name").value;
-        var userInput = document.getElementsByName("userInput").value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/calculate-quantity?name=" + name + "&userInput=" + userInput, true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                document.getElementById("result").innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
-    }
-</script>
+    <div th:fragment="calculator" class="container mt-5 col py-3">
+<h1>Калькулятор продукта.</h1>
+<p>Выберите блюдо, а затем введите целое число, означающее, сколько человек желает отведать этого блюда. </p>
+<div><select class="form-control" id="dropDownList">
+    <option value="0">Выберете блюдо</option>
+    <option th:each="food : ${foods}" th:value="${food.name}" th:text="${food.name}"></option>
+</select>
+</div>
+        <div >
+            <p class="amountcom">Введите число,означающее, сколько людей хотят отведать это блюдо.</p>
+            <br>
+            <label>
+                <input class="amount" />
+            </label>
+        </div>
+        <div>
+<button class="button">
+    Нажми на кнопку - <br>
+    получишь результат.
+  </button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
