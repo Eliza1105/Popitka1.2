@@ -1,7 +1,10 @@
 package holidayservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.persistence.*;
 
@@ -9,6 +12,8 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +25,21 @@ public class Food {
     private String description;
     @Column(name = "food_unit")
     private double unit;
+    @Lob
     @Column(name = "food_image")
-    private String image;
+    private byte[] image;
 
+    public Food(Integer id, String name, String description, double unit, byte[] image) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.unit = unit;
+        this.image = image;
+    }
+
+    public String generateBase64Image(){
+    return Base64.encodeBase64String(this.image);
+}
   /*  @OneToMany()
     @JoinColumn(name = "id_food")
     List<Marinades> marinades=new ArrayList<>();

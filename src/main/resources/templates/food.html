@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Food</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/css/food.css}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -16,10 +20,10 @@
     <div class="row flex-nowrap">
         <div th:replace="index::sidebar"></div>
 <div th:fragment="food" class="container mt-5 col py-3">
-<h3>Список наших блюд.</h3>
-<table class="table table-striped w-auto">
-    <tr>
-        <th>Id</th><th>Название</th><th>Описание</th><th>Порция</th>
+<h1>Список наших блюд.</h1>
+<table>
+    <tr class="head">
+        <th>Id</th><th>Название</th><th>Описание</th><th>Порция</th><th>Пример</th>
     </tr>
     <tbody>
     <tr th:each="food: ${foods}">
@@ -27,10 +31,13 @@
         <td th:utext="${food.name}"></td>
         <td th:utext="${food.description}"></td>
         <td th:utext="${food.unit}"></td>
-        <td th:utext="${food.image}"></td>
+        <td><img th:src="@{'data:image/jpeg;base64,'+${food.generateBase64Image()}}"></td>
     </tr>
     </tbody>
 </table>
+<h2> Вы можете внести свои любимые блюда
+        <a th:href="@{/create_food}"><i class="bi-pencil-fill">::before</i></a>
+    </h2>
 </div>
     </div>
 </div>
