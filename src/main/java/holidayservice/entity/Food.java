@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "foods")
 @Entity
@@ -25,24 +27,14 @@ public class Food {
     private String description;
     @Column(name = "food_unit")
     private double unit;
-    @Lob
-    @Column(name = "food_image")
-    private byte[] image;
+@Column(name = "food_image")
+    private String link;
 
-    public Food(Integer id, String name, String description, double unit, byte[] image) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.unit = unit;
-        this.image = image;
-    }
-
-    public String generateBase64Image(){
-    return Base64.encodeBase64String(this.image);
-}
   /*  @OneToMany()
     @JoinColumn(name = "id_food")
     List<Marinades> marinades=new ArrayList<>();
 
    */
 }
+
+

@@ -31,12 +31,12 @@
         <td th:utext="${food.name}"></td>
         <td th:utext="${food.description}"></td>
         <td th:utext="${food.unit}"></td>
-        <td><img th:src="@{'data:image/jpeg;base64,'+${food.generateBase64Image()}}"></td>
+        <td><img th:src="${food.link}"></td>
     </tr>
     </tbody>
 </table>
 <h2> Вы можете внести свои любимые блюда
-        <a th:href="@{/create_food}"><i class="bi-pencil-fill">::before</i></a>
+        <a th:href="@{/create_food}"><i class="bi-pencil-fill"></i></a>
     </h2>
 </div>
     </div>

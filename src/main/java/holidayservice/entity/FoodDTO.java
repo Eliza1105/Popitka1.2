@@ -16,6 +16,5 @@ public class FoodDTO {
     private String name;
     private String description;
     private double unit;
-    @Transient
-    private String image;
+    private String link;
 }
