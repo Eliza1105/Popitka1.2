@@ -51,9 +51,25 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#users" data-bs-toggle="collapse" class="menu">
+                     <span>Users</span> </a>
+                <ul class="collapse nav flex-column ms-1" id="users" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a th:href="@{/user}" class="submenu"> <span>Users list</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/login}" class="submenu"> <span>SignIn</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/registration}" class="submenu"> <span>SignUp</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-        <hr>
-    </div>
+        <form th:action="@{/logout}" th:method="post">
+            <input type="submit" value="Sing out"/>
+        </form>
     </div>
 <div th:fragment="gallery" class="container mt-5 col py-3">
     <h1>Holiday Service приветствует!</h1>
@@ -94,7 +110,6 @@
             <p id="caption"></p>
         </div>
 
-
         <div class="row">
             <div class="column">
                 <img class="demo cursor" th:src="@{/img/отдых.jpg}" style="width:10%" onclick="currentSlide(1)" alt="Отдых">
@@ -112,6 +127,7 @@
         </div>
     </div>
     </div>
+</div>
 </div>
 <script type="text/javascript" th:src="@{/js/calculator.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>

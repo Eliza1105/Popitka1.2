@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div th:replace="index::sidebar"></div>
+        <div th:fragment="user" class="container mt-5 col py-3">
+            <h1>Список наших пользователей.</h1>
+            <table>
+                <tr class="head">
+                    <th>Id</th><th>Имя пользователя</th><th>Роль</th>
+                </tr>
+                <tbody>
+                <tr th:each="user: ${users}">
+                    <td th:utext="${user.id}"></td>
+                    <td th:utext="${user.username}"></td>
+                    <td th:utext="${user.role}"></td>
+                    <td> <a th:href="/user/${user.id}">Edit</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
