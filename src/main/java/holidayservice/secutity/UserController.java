@@ -22,7 +22,14 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("/user")
+    @GetMapping(value = "/login")
+    public String login(User user, Model model){
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+    //тут пытаюсь вывести список юзеров с ролями, но, похоже пользователей не сохраняет
+    @GetMapping("/userList")
     public String userList(Model model) {
         model.addAttribute("users", userRepo.findAll());
 

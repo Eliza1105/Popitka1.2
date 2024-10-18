@@ -16,17 +16,19 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private UserSevice userSevice;
+
+    private final UserSevice userSevice;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("h2-console").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("h2-console", "/", "/login", "/css/**", "/img/**", "/js/**").permitAll()
+                .antMatchers("/admin/**","/userList").hasRole("ADMIN")
+                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/registration").not().fullyAuthenticated()
                 .anyRequest().authenticated()
                 .and()
