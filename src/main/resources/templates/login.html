@@ -17,7 +17,7 @@
     <div class="form-group files">
         <label for="name"> User Name : <input type="text" id="name" name="username" th:field="*{username}"/> </label></div>
     <div><label for="pass"> Password: <input type="password" id="pass" name="password" th:field="*{password}"/> </label></div>
-    <input type="hidden" th:value="*{_csrf.token}" name="_csrf">
+   <!-- <input type="hidden" th:value="*{_csrf.token}" name="_csrf">-->
     <div><input type="submit" value="Sign In"/></div>
 </form>
 <div class="registration">

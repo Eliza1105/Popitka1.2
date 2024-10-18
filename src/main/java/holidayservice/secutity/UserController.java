@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
+   //проблема такая
     @GetMapping(value = "/login")
     public String login(User user, Model model){
         model.addAttribute("user", new User());
