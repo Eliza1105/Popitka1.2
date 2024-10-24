@@ -13,23 +13,29 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-Добавить нового пользователя
+<div class="container">
+<h2>Регистрация</h2>
 <form th:action="@{/registration}" th:method="post" th:object="${user}">
-    <div class="form-group files">
-        <!-- вставляю id по примеру create-food , чтоб негласно сохранялся айдишник, он же автоинкремент , но кажется в форме
-        registration в методе addUser чего-то не хватает для этого
-        <input type="hidden" id="id" th:field="*{user_id}" >-->
-    <div><label> User Name : <input type="text" name="username" th:field="*{username}"/> </label></div>
-    <div><label> Password: <input type="password" name="password" th:field="*{password}"/> </label></div>
-    <label>
-        <select name="role">
-            <option th:each="roleOpt : ${T(holidayservice.secutity.Role).values()}"
-                    th:value="${roleOpt}" th:text="${roleOpt}"></option>
-        </select>
-    </label>
-  <!--  <input type="hidden" th:value="*{_csrf.token}" name="_csrf">-->
-    <div><input type="submit" value="Sign In"/></div>
-        </div>
-</form>
-</body>
-</html>
+    <div class="form-group">
+        <label for="username"> Имя пользователя :  </label>
+        <input type="text" id="username" name="username" th:field="*{username}" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="password"> Пароль:  </label>
+        <input type="password" id="password" name="password" th:field="*{password}" class="form-control" required>
+    </div>
+   <!-- <div class="form-group">
+        <label for="role">Роль: </label>
+        <select id="role" name="role" th:field="*{roles}" class="form-control">
+            <option th:each="role : ${role}" th:value="${role}" th:text="${role}"></option>
+              <option th:each="roleOpt : ${T(holidayservice.secutity.Role).values()}"
+                      th:value="${roleOpt}" th:text="${roleOpt}"></option>
+          </select>
+      </div>-->
+      <div class="form-group">
+          <button type="submit" class="btn-primary">Зарегистрироваться</button>
+          </div>
+  </form>
+</div>
+  </body>
+  </html>

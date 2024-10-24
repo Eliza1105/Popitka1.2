@@ -13,10 +13,10 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" th:method="post" th:object="${user}">
+<form th:action="@{/login}" th:method="post" >
     <div class="form-group files">
-        <label for="name"> User Name : <input type="text" id="name" name="username" th:field="*{username}"/> </label></div>
-    <div><label for="pass"> Password: <input type="password" id="pass" name="password" th:field="*{password}"/> </label></div>
+        <label for="name"> User Name : <input type="text" id="name" name="username" /> </label></div>
+    <div><label for="pass"> Password: <input type="password" id="pass" name="password" /> </label></div>
    <!-- <input type="hidden" th:value="*{_csrf.token}" name="_csrf">-->
     <div><input type="submit" value="Sign In"/></div>
 </form>

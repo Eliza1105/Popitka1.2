@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,11 +29,57 @@ public class Food {
 @Column(name = "food_image")
     private String link;
 
-  /*  @OneToMany()
-    @JoinColumn(name = "id_food")
-    List<Marinades> marinades=new ArrayList<>();
+    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true)
 
-   */
+    private List<Marinade> marinades=new ArrayList<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getUnit() {
+        return unit;
+    }
+
+    public void setUnit(double unit) {
+        this.unit = unit;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public List<Marinade> getMarinades() {
+        return marinades;
+    }
+
+    public void setMarinades(List<Marinade> marinades) {
+        this.marinades = marinades;
+    }
 }
 
 

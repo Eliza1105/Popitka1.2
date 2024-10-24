@@ -1,42 +1,36 @@
-package holidayservice.secutity;
+package holidayservice.secutity.user;
 
+import holidayservice.secutity.role.Role;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
-//@PreAuthorize("hasAuthority('ADMIN')")
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserRepo userRepo;
 
-   //проблема такая
+    private final UserRepo userRepo;
     @GetMapping(value = "/login")
     public String login(User user, Model model){
         model.addAttribute("user", new User());
         return "login";
     }
-
-    //тут пытаюсь вывести список юзеров с ролями, но, похоже пользователей не сохраняет
     @GetMapping("/userList")
     public String userList(Model model) {
         model.addAttribute("users", userRepo.findAll());
 
         return "userList";
     }
-
     @GetMapping("{user}")
     public String userEditForm(@PathVariable User user, Model model) {
         model.addAttribute("user", user);
@@ -45,7 +39,7 @@ public class UserController {
         return "userEdit";
     }
 
-    @PostMapping
+    @PostMapping(value = "user_create")
     public String userSave(
             @RequestParam String username,
             @RequestParam Map<String, String> form,
@@ -53,7 +47,7 @@ public class UserController {
     ) {
         user.setUsername(username);
 
-        Set<String> roles = Arrays.stream(Role.values())
+ /*       Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());
 
@@ -65,8 +59,10 @@ public class UserController {
             }
         }
 
+  */
+user.setRoles(Role.USER);
         userRepo.save(user);
 
-        return "redirect:/login";
+        return "redirect:/userList";
     }
 }
