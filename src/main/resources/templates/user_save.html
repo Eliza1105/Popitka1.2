@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать пользователя</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>Редактировать пользователя</h1>
+    <form th:action="@{/user_save}" th:method="post" th:object="${user}">
+        <div class="form-group files">
+        <input type="text" id="id" th:field="*{id}" hidden/>
+
+        <div>
+            <label for="username" class="form-label">Имя пользователя:</label>
+            <input type="text" class="form-control" id="username" name="username" th:field="*{username}" required/>
+        </div>
+
+        <div>
+            <label for="role" class="form-label">Роли:</label>
+            <input type="text" class="form-control" id="role" name="role" th:field="*{roles}">
+        </div>
+
+        <button type="submit">Сохранить</button>
+        <a th:href="@{/userList}">Назад к списку пользователей</a>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -2,67 +2,54 @@ package holidayservice.secutity.user;
 
 import holidayservice.secutity.role.Role;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
+
 public class UserController {
+    private final UserService userService;
 
     private final UserRepo userRepo;
-    @GetMapping(value = "/login")
-    public String login(User user, Model model){
-        model.addAttribute("user", new User());
-        return "login";
-    }
-    @GetMapping("/userList")
-    public String userList(Model model) {
-        model.addAttribute("users", userRepo.findAll());
 
+    @GetMapping("/userList")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String userList(Model model) {
+        List<User> users=userRepo.findAll();
+        model.addAttribute("users", users);
         return "userList";
     }
-    @GetMapping("{user}")
-    public String userEditForm(@PathVariable User user, Model model) {
-        model.addAttribute("user", user);
-        model.addAttribute("roles", Role.values());
 
-        return "userEdit";
-    }
-
-    @PostMapping(value = "user_create")
-    public String userSave(
-            @RequestParam String username,
-            @RequestParam Map<String, String> form,
-            @RequestParam("userId") User user
-    ) {
-        user.setUsername(username);
-
- /*       Set<String> roles = Arrays.stream(Role.values())
-                .map(Role::name)
-                .collect(Collectors.toSet());
-
-        user.getRoles().clear();
-
-        for (String key : form.keySet()) {
-            if (roles.contains(key)) {
-                user.getRoles().add(Role.valueOf(key));
-            }
-        }
-
-  */
-user.setRoles(Role.USER);
-        userRepo.save(user);
-
+    @GetMapping("/delete_user/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        userService.deleteById(id); // Удаляем блюдо по ID
         return "redirect:/userList";
     }
+
+    @GetMapping(value ="/user_save/{id}")
+    public String updateUser(@PathVariable Long id, User user, Model model) {
+        model.addAttribute("user", userService.findById(id));
+        System.out.println(user.toString());
+        return "user_save";
+    }
+    @PostMapping("/user_save")
+    public String updateUser(@ModelAttribute User user, Model model) {
+        System.out.println(user.toString());
+        User userDb = userService.findById(user.getId());
+        System.out.println(userDb.toString());
+
+        userDb.setUsername(user.getUsername());
+        userDb.setRoles(user.getRoles());
+
+        userService.save(userDb);
+        return "redirect:/userList";
+    }
+
 }

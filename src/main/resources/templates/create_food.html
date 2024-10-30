@@ -16,7 +16,7 @@
         <div class="form-group files">
         <input type="hidden" id="id" th:field="*{id}" >
 
-            <label for="name" class="form-label">Название блюда</label>
+            <label for="name" class="lab">Название блюда</label>
             <input type="text" class="form-control" id="name" name="name" th:value="*{name}">
 
             <label for="description" class="form-label">Краткое описание</label>
@@ -29,8 +29,7 @@
             <input class="form-control" type="file" id="image" multiple="" name="file" th:value="*{link}">
 
             <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <button type="reset" class="btn btn-secondary" value="Reset">Reset</button>
+                <button type="submit" >Добавить</button>
             </div>
         </div>
     </form>

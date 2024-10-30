@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-
 @Table(name = "usr")
 public class User {
     @Id
@@ -45,11 +44,6 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-
-
-    //public void setEnable(boolean enable) {this.enable = enable;}
-
-    //public boolean isEnable() {return enable;}
 
     public Role getRoles() {
         return roles;

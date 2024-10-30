@@ -1,0 +1,19 @@
+.lab{
+    color: #8A2BE2;
+    
+}
+
+.button{
+    width: 250px;
+    height: 150px;
+    background-color: rgba(50, 205, 50, 0.782);
+    color: #FFFACD;
+    text-align: center;
+    font-family: fantasy;
+    border-radius: 15%;
+    position: relative;
+    top: 60%;
+    left: 70%;
+      box-shadow: 2px 2px 4px
+  }
+  .button:hover {background: #8A2BE2;}

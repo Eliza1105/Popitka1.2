@@ -22,14 +22,14 @@ public class Food {
     private Integer id;
     @Column(name = "food_name")
     private String name;
-    @Column(name = "food_description")
+    @Column(name = "food_description", columnDefinition = "TEXT")
     private String description;
     @Column(name = "food_unit")
     private double unit;
 @Column(name = "food_image")
     private String link;
 
-    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "food", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 
     private List<Marinade> marinades=new ArrayList<>();
 
@@ -79,6 +79,18 @@ public class Food {
 
     public void setMarinades(List<Marinade> marinades) {
         this.marinades = marinades;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", unit=" + unit +
+                ", link='" + link + '\'' +
+                ", marinades=" + marinades +
+                '}';
     }
 }
 

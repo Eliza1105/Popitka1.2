@@ -10,6 +10,7 @@ p{
   text-align: center;
   font-family: fantasy;
   font-size: 20px;
+  color: #651ea7;
 }
 .form-control{
   display: inline-block; 
@@ -17,7 +18,7 @@ p{
   line-height: 25px;
   position: relative;
   top: 25%;
-  left: 25%;
+  margin-left: 30%;
   box-shadow: 2px 2px 4px
 }
 .amountcom{
@@ -32,10 +33,10 @@ p{
   line-height: 25px;
   position: relative;
   top: 50%;
-  margin-left: 360px;
+  margin-left: 420px;
   box-shadow: 2px 2px 4px
 }
-button{
+.button{
   width: 200px;
   height: 120px;
   background-color: rgba(50, 205, 50, 0.782);
@@ -44,12 +45,23 @@ button{
   font-family: fantasy;
   border-radius: 15%;
   position: relative;
-  top: 50%;
+  top: 60%;
   left: 70%;
     box-shadow: 2px 2px 4px
 }
 .button:hover {background: #8A2BE2;}
 
-
-
-<!--#8A2BE2-->
+.res{
+  display: inline-block; 
+  color: #8A2BE2;
+  text-align: center;
+  font-size: large;
+  font-family: fantasy;
+  font-weight: 300;
+  display: block;
+  width: 300px;
+  height: 90px;
+  border: 10px dotted rgba(50,205,50,0.782);
+margin-left: 35%;
+margin-top: 5%;
+}

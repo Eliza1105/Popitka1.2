@@ -42,7 +42,17 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
   }
-  
+  button{
+    width: 120px;
+    height: 80px;
+    color: #8A2BE2;
+    background-color: rgba(50, 205, 50, 0.782);
+    text-align: center;
+    font-weight: 500;
+    font-family: fantasy;
+    border-radius: 15%;
+    box-shadow: 2px 2px 4px;
+}
   .container {
     position: relative;
   }

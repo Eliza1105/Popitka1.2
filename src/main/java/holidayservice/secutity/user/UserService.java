@@ -1,25 +1,29 @@
 package holidayservice.secutity.user;
 
 
-import holidayservice.secutity.role.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
+@Autowired
+    private  UserRepo userRepo;
 
-    private final UserRepo userRepo;
-
-    @Override
+@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return (UserDetails) userRepo.findByUsername(username);
+        System.out.println(username);
+        return new MyUserDetails(userRepo.findByUsername(username));
     }
+    public void deleteById(Long id){
+        userRepo.deleteById(id);
+    }
+
+    public User findById(Long id){return userRepo.findById(id).get();}
+
+    public User save(User user){return userRepo.save(user);}
 }

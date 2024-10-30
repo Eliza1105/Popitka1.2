@@ -1,0 +1,404 @@
+2024-10-25 12:25:02 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "ID" не найден
+Column "ID" not found; SQL statement:
+DELETE FROM USR WHERE ID =3 [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:139)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:112)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp.query(WebApp.java:1113)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:129)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:166)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0418\\043c \\043d\\0435 \\043d\\0443\\0436\\043d\\043e \\0443\\0434\\0435\\043b\\044f\\044... (591)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0418\\043c \\043d\\0435 \\043d\\0443\\0436\\043d\\043e \\0443\\0434\\0435\\043b\\044f\\044... (591)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Соево-чесночный', 'Им не нужно уделять особого внимания, нужно только замариновать, выдержать в маринаде и отправить на гриль. Минимум усилий и продуктов, простота приготовления, а в результате - вкусный ужин. Для приготовления куриных крылышек в соево-чесночном маринаде подготовим продукты по списку: крылья, соевый соус, чеснок. В соевый соус добавляем чеснок и карри, перемешиваем. Крылья выкладываем в миску, заливаем маринадом, перемешиваем и оставляем мариноваться на 60 минут. За это время пару раз нужно перемешать крылья. Выкладываем на решетку и обжариваем на гриле 20 минут(по 10 с каждой стороны).', '/img/w-soy.jpg', 2) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\043b\\043e\\0436\\0438\\0442\\044c \\043a\\0440\\044b\\043b\\044c\\044f \\0432 \\043... (697)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\043b\\043e\\0436\\0438\\0442\\044c \\043a\\0440\\044b\\043b\\044c\\044f \\0432 \\043... (697)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Медовый маринад', 'Сложить крылья в миску, добавить соль (с солью осторожно, т.к. в маринаде присутствует соевый соус), перец, любые специи на ваше усмотрение и все перемешать. Мед растопить в микроволновой печи, чтобы он стал жидким, добавить сок половины лимона, соевый соус, растительное масло, выдавать два зубчика чеснока, все перемешать. Залить крылья приготовленным маринадом, хорошо перемешать, чтобы маринад распределился по всем. крыльям. Накрыть, оставить на полчаса при комнатной температуре, затем убрать в холодильник минимум на 2 часа (если оставить на ночь, крылья очень хорошо пропиваются и получаются особенно сочными). Выкладываем на решетку и обжариваем на гриле 20 минут(по 10 с каждой стороны).', '/img/w-honey.jpg', 2) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\0430\\043c\\044b\\0439 \\043d\\0430\\0440\\043e\\0434\\043d\\044b\\0439 \\043c\\0430... (349)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\0430\\043c\\044b\\0439 \\043d\\0430\\0440\\043e\\0434\\043d\\044b\\0439 \\043c\\0430... (349)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Народный', 'Самый народный маринад для шашлыка из свинины. Ингредиенты: Репчатый лук — 2 шт., Сметана — 200 г, Майонез — 50 г, Чеснок — 2–3 зубчика, Орегано, тимьян — по вкусу. Нарезать лук полукольцами; смешать сметану и майонез, раздавить туда же зубчики чеснока и добавить лук, орегано и тимьян. замариновать шашлык из свинины в этой смеси в течение 5 часов.', '/img/p-mayo.jpg', 1) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041d\\0430\\0441\\044b\\0449\\0435\\043d\\043d\\044b\\0439, \\043f\\0440\\044f\\043d\\044b... (572)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041d\\0430\\0441\\044b\\0449\\0435\\043d\\043d\\044b\\0439, \\043f\\0440\\044f\\043d\\044b... (572)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Томатный ', 'Насыщенный, пряный и очень сочный — таким получится шашлык из свинины в томатном маринаде. Томатный сок — 1 л, Болгарский перец — 3 шт., Аджика — 5 г, Соль — 30 г. Разрезать болгарские перцы, выбросить семена и пленки, сами перцы нарезать на пластины. Положить пластины в томатный сок, добавить соль и аджику, все как следует размешать. Погрузить мясо в эту смесь, вмассировать ее руками в поверхность свинины. Затем мариновать в этой смеси шашлык в течение 3 часов. Чтобы мясо получилось более острым, можно добавить в маринад чуть больше аджики и мариновать его часов 5.', '/img/p-tomato.jpg', 1) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0413\\043b\\0430\\0432\\043d\\044b\\0439 \\0430\\0434\\0440\\0435\\0441\\0430\\0442 \\044d... (931)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0413\\043b\\0430\\0432\\043d\\044b\\0439 \\0430\\0434\\0440\\0435\\0441\\0430\\0442 \\044d... (931)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Соевый', 'Главный адресат этого маринада — любая красная рыба, от горбуши до семги и от нерки до гольца. Соевый соус при поддержке горчицы и лимона избавляет лососевых от заметного специфического привкуса, который особо привередливые едоки называют привкусом рыбьего жира. И это несмотря на то, что рыба даже не запекается в маринаде, а только выдерживается в нем минимальное количество времени. Можете при желании зажаренную на углях рыбу подать с перышками зеленого лука, тоже слегка обожжеными на костре. Тогда в этом огненном кушанье появится что-то китайское. Смешать соевый соус и сок лимона. Добавить мед (если он слишком густой, немного растопить, поставив миску возле огня или в микроволновке), горчицу и перемешайте, чтобы они разошлись, затем тонко нарезанный имбирь и рубленую кинзу. Поперчите по вкусу. Оставьте рыбу в маринаде перед жаркой на мангале на 20 минут при комнатной температуре или на 1–2 часа уберите в холодильник.', '/img/g-soy.jpg', 4) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041c\\0430\\0440\\0438\\043d\\0430\\0434 \\0438\\0437 5 \\0438\\043d\\0433\\0440\\0435\\04... (618)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041c\\0430\\0440\\0438\\043d\\0430\\0434 \\0438\\0437 5 \\0438\\043d\\0433\\0440\\0435\\04... (618)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Лимонная', 'Маринад из 5 ингредиентов — масло, лимон, чеснок, соль и перец, можно еще добавить любую зелень по желанию. Максимально сохраняет любой рыбе, приготовленной на живом огне, ее натуральный вкус. Подходит как для нежнейших горбуши и речной форели, с которыми при мариновании нужно быть особенно деликатными, так и для куда более яркой скумбрии, у которой лимонная кислинка убирает ненужную горечь. Выжать из лимона сок, смешать его с пропущенным через пресс чесноком, добавить соль и перец по вкусу. Кинуть туда же стебли петрушки, слегка размяв их толкушкой. Оставить рыбу в маринаде перед жаркой на мангале на 20 минут.', '/img/g-limon.jpg', 4) [22001-214]
+2024-10-25 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041a\\0430\\0431\\0430\\0447\\043a\\0438 \\043d\\0435 \\0438\\043c\\0435\\044e\\0442 \\044... (384)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041a\\0430\\0431\\0430\\0447\\043a\\0438 \\043d\\0435 \\0438\\043c\\0435\\044e\\0442 \\044... (384)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Провань', 'Кабачки не имеют ярко выраженного вкуса. Поэтому для его усиления используются специи. Овощи сочетаются с сухими пряностями или душистыми травами. К ним идеально подойдут чабрец, паприка, смесь перцев, орегано, кориандр. Но не перестарайтесь: мякоть быстро поглощает дополнительные привкусы. Поэтому количество специй должно быть минимальным. Попробуйте маринад с прованскими травами.','/img/kabachok.jpeg' , 5) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&' \\0414\\043b\\044f \\043f\\0440\\0438\\0433\\043e\\0442\\043e\\0432\\043b\\0435\\043d\\0438... (328)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&' \\0414\\043b\\044f \\043f\\0440\\0438\\0433\\043e\\0442\\043e\\0432\\043b\\0435\\043d\\0438... (328)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Соево-чесночный', ' Для приготовления куриных крылышек в соево-чесночном маринаде подготовим продукты по списку: крылья, соевый соус, чеснок. В соевый соус добавляем чеснок и карри, перемешиваем. Крылья выкладываем в миску, заливаем маринадом, перемешиваем и оставляем мариноваться на 60 минут. Выкладываем на решетку и обжариваем на гриле 20 мин.', '/img/w-soy.jpg', 2) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\043b\\043e\\0436\\0438\\0442\\044c \\043a\\0440\\044b\\043b\\044c\\044f \\0432 \\043... (395)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\043b\\043e\\0436\\0438\\0442\\044c \\043a\\0440\\044b\\043b\\044c\\044f \\0432 \\043... (395)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Медовый маринад', 'Сложить крылья в миску, добавить соль (с солью осторожно, т.к. в маринаде присутствует соевый соус), перец, любые специи на ваше усмотрение и все перемешать. Мед растопить, добавить сок половины лимона, соевый соус, растительное масло, выдавать два зубчика чеснока, все перемешать. Залить крылья приготовленным маринадом, оставить на полчаса. Выкладываем на решетку и обжариваем на гриле 20 мин.', '/img/w-honey.jpg', 2) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\0430\\043c\\044b\\0439 \\043d\\0430\\0440\\043e\\0434\\043d\\044b\\0439 \\043c\\0430... (349)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0421\\0430\\043c\\044b\\0439 \\043d\\0430\\0440\\043e\\0434\\043d\\044b\\0439 \\043c\\0430... (349)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Народный', 'Самый народный маринад для шашлыка из свинины. Ингредиенты: Репчатый лук — 2 шт., Сметана — 200 г, Майонез — 50 г, Чеснок — 2–3 зубчика, Орегано, тимьян — по вкусу. Нарезать лук полукольцами; смешать сметану и майонез, раздавить туда же зубчики чеснока и добавить лук, орегано и тимьян. замариновать шашлык из свинины в этой смеси в течение 5 часов.', '/img/p-mayo.jpg', 1) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041d\\0430\\0441\\044b\\0449\\0435\\043d\\043d\\044b\\0439, \\043f\\0440\\044f\\043d\\044b... (572)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041d\\0430\\0441\\044b\\0449\\0435\\043d\\043d\\044b\\0439, \\043f\\0440\\044f\\043d\\044b... (572)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Томатный ', 'Насыщенный, пряный и очень сочный — таким получится шашлык из свинины в томатном маринаде. Томатный сок — 1 л, Болгарский перец — 3 шт., Аджика — 5 г, Соль — 30 г. Разрезать болгарские перцы, выбросить семена и пленки, сами перцы нарезать на пластины. Положить пластины в томатный сок, добавить соль и аджику, все как следует размешать. Погрузить мясо в эту смесь, вмассировать ее руками в поверхность свинины. Затем мариновать в этой смеси шашлык в течение 3 часов. Чтобы мясо получилось более острым, можно добавить в маринад чуть больше аджики и мариновать его часов 5.', '/img/p-tomato.jpg', 1) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0413\\043b\\0430\\0432\\043d\\044b\\0439 \\0430\\0434\\0440\\0435\\0441\\0430\\0442 \\044d... (931)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0413\\043b\\0430\\0432\\043d\\044b\\0439 \\0430\\0434\\0440\\0435\\0441\\0430\\0442 \\044d... (931)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Соевый', 'Главный адресат этого маринада — любая красная рыба, от горбуши до семги и от нерки до гольца. Соевый соус при поддержке горчицы и лимона избавляет лососевых от заметного специфического привкуса, который особо привередливые едоки называют привкусом рыбьего жира. И это несмотря на то, что рыба даже не запекается в маринаде, а только выдерживается в нем минимальное количество времени. Можете при желании зажаренную на углях рыбу подать с перышками зеленого лука, тоже слегка обожжеными на костре. Тогда в этом огненном кушанье появится что-то китайское. Смешать соевый соус и сок лимона. Добавить мед (если он слишком густой, немного растопить, поставив миску возле огня или в микроволновке), горчицу и перемешайте, чтобы они разошлись, затем тонко нарезанный имбирь и рубленую кинзу. Поперчите по вкусу. Оставьте рыбу в маринаде перед жаркой на мангале на 20 минут при комнатной температуре или на 1–2 часа уберите в холодильник.', '/img/g-soy.jpg', 4) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041c\\0430\\0440\\0438\\043d\\0430\\0434 \\0438\\0437 5 \\0438\\043d\\0433\\0440\\0435\\04... (618)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041c\\0430\\0440\\0438\\043d\\0430\\0434 \\0438\\0437 5 \\0438\\043d\\0433\\0440\\0435\\04... (618)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Лимонная', 'Маринад из 5 ингредиентов — масло, лимон, чеснок, соль и перец, можно еще добавить любую зелень по желанию. Максимально сохраняет любой рыбе, приготовленной на живом огне, ее натуральный вкус. Подходит как для нежнейших горбуши и речной форели, с которыми при мариновании нужно быть особенно деликатными, так и для куда более яркой скумбрии, у которой лимонная кислинка убирает ненужную горечь. Выжать из лимона сок, смешать его с пропущенным через пресс чесноком, добавить соль и перец по вкусу. Кинуть туда же стебли петрушки, слегка размяв их толкушкой. Оставить рыбу в маринаде перед жаркой на мангале на 20 минут.', '/img/g-limon.jpg', 4) [22001-214]
+2024-10-25 23:47:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041a\\0430\\0431\\0430\\0447\\043a\\0438 \\043d\\0435 \\0438\\043c\\0435\\044e\\0442 \\044... (384)"
+Value too long for column "MARINADE_DESCRIPTION CHARACTER VARYING(255)": "U&'\\041a\\0430\\0431\\0430\\0447\\043a\\0438 \\043d\\0435 \\0438\\043c\\0435\\044e\\0442 \\044... (384)"; SQL statement:
+INSERT INTO marinades (marinade_name, marinade_description, marinade_image, id_food) VALUES('Провань', 'Кабачки не имеют ярко выраженного вкуса. Поэтому для его усиления используются специи. Овощи сочетаются с сухими пряностями или душистыми травами. К ним идеально подойдут чабрец, паприка, смесь перцев, орегано, кориандр. Но не перестарайтесь: мякоть быстро поглощает дополнительные привкусы. Поэтому количество специй должно быть минимальным. Попробуйте маринад с прованскими травами.','/img/kabachok.jpeg' , 5) [22001-214]
+2024-10-26 00:26:49 jdbc[35]: null
+org.h2.message.DbException: Незакрытое приложением соединение уничтожено сборщиком мусора
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:190)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:132)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$logDataSources$1(H2ConsoleAutoConfiguration.java:86)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.logDataSources(H2ConsoleAutoConfiguration.java:92)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$h2Console$0(H2ConsoleAutoConfiguration.java:68)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.withThreadContextClassLoader(H2ConsoleAutoConfiguration.java:77)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.h2Console(H2ConsoleAutoConfiguration.java:68)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:203)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:97)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:479)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at holidayservice.HolidayServiceApp.main(HolidayServiceApp.java:9)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Незакрытое приложением соединение уничтожено сборщиком мусора
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 92 more
+2024-10-26 00:40:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "ID_MARINADES" не найден
+Column "ID_MARINADES" not found; SQL statement:
+DELETE FROM MARINADES WHERE ID_MARINADES = 16 [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:139)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:112)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp.query(WebApp.java:1113)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:129)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:166)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-27 23:35:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALCOHOL" не найдена
+Table "ALCOHOL" not found; SQL statement:
+INSERT INTO alcohol (alcohol_name, alcohol_description, alcohol_unit, alcohol_image) VALUES('Пиво', 'Пиво — один из древнейших напитков, известный с эпохи неолита вместе с мёдом, квасом и вином. Это слабоалкогольный напиток, получаемый спиртовым брожением солодового сусла с помощью пивных дрожжей.', 1, '/img/beer.jpg') [42102-214]
+2024-10-27 23:35:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALCOHOL" не найдена
+Table "ALCOHOL" not found; SQL statement:
+INSERT INTO alcohol (alcohol_name, alcohol_description, alcohol_unit, alcohol_image) VALUES('Виски', 'Виски - крепкий ароматный алкогольный напиток, получаемый из различных видов зерна с использованием процессов соложения, брожения, перегонки и длительного выдерживания в дубовых бочках.', 0.25, '/img/whiskey.jpg') [42102-214]
+2024-10-27 23:35:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALCOHOL" не найдена
+Table "ALCOHOL" not found; SQL statement:
+INSERT INTO alcohol (alcohol_name, alcohol_description, alcohol_unit, alcohol_image) VALUES('Водка', 'Водка- крепкий алкогольный напиток, бесцветный водно-спиртовой раствор с характерным вкусом и ярко выраженным спиртовым запахом.', 0.25, '/img/vodka.jpg') [42102-214]
+2024-10-27 23:35:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALCOHOL" не найдена
+Table "ALCOHOL" not found; SQL statement:
+INSERT INTO alcohol (alcohol_name, alcohol_description, alcohol_unit, alcohol_image) VALUES('Тихое вино', 'Вино — алкогольный напиток, полученный путём сбраживания свежего винограда. В производстве вин используется огромное количество различных сортов винограда, общее их разделение на красные и белые.', 0.75, '/img/vine.jpg') [42102-214]
+2024-10-27 23:35:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALCOHOL" не найдена
+Table "ALCOHOL" not found; SQL statement:
+INSERT INTO alcohol (alcohol_name, alcohol_description, alcohol_unit, alcohol_image) VALUES('Игристое вино', 'Шампанское — игристое виноградное вино из Шампани, полученное методом вторичного брожения в бутылке. Напиток приобретает свежесть и высокую кислотность благодаря холодному и влажному климату региона.', 0.25, '/img/shampan.jpg') [42102-214]
+2024-10-28 00:52:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "COCTAIL_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0425\\043e\\0442\\0438\\0442\\0435 \\043f\\043e\\043f\\0440\\043e\\0431\\043e\\0432\\0430\\... (318)"
+Value too long for column "COCTAIL_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0425\\043e\\0442\\0438\\0442\\0435 \\043f\\043e\\043f\\0440\\043e\\0431\\043e\\0432\\0430\\... (318)"; SQL statement:
+INSERT INTO coctails (coctail_name, coctail_description, coctail_image, id_alcohol, id_alcoholfree) VALUES('Отвертка', 'Хотите попробовать "Отвёртку"? Это один из самых популярных миксов: яблочный сок и водка. На выходе коктейль получается очень свежим. Большое количество сока делает "Отвёртку" слабоалкогольной, но это не значит, что лонг совершенно безвреден: пара-тройка коктейлей и настоящая отвёртка уже будет выпадать из ваших рук.', '/img/otvertka.jpg', 3, 3) [22001-214]
+2024-10-28 00:52:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Значение слишком длинное для поля "COCTAIL_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0412\\043d\\0435\\0448\\043d\\0438\\043c \\0432\\0438\\0434\\043e\\043c \\0448\\0430\\043c... (335)"
+Value too long for column "COCTAIL_DESCRIPTION CHARACTER VARYING(255)": "U&'\\0412\\043d\\0435\\0448\\043d\\0438\\043c \\0432\\0438\\0434\\043e\\043c \\0448\\0430\\043c... (335)"; SQL statement:
+INSERT INTO coctails (coctail_name, coctail_description, coctail_image, id_alcohol, id_alcoholfree) VALUES('Мимоза', 'Внешним видом шампанское с виноградным соком напоминает тропический цветок мимозы, отсюда и название коктейля с освежающим фруктовым вкусом. Желательно взять свежевыжатый виноградный сок, поскольку пакетированный слишком сладкий и неароматный. Перед смешиванием свежий сок фильтруют через кухонное ситечко для удаления остатков мякоти.', '/img/v-sok.jpg', 5, 4) [22001-214]

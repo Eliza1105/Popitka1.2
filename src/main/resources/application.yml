@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:holiday;
+    url: jdbc:h2:file:./src/main/resources/dbase
     username: sa
     password:
     h2:

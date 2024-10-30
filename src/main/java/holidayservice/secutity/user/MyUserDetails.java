@@ -32,13 +32,13 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return isEnabled();
+        return true;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_"+user.getRoles().name()));
+        authorities.add(new SimpleGrantedAuthority(user.getRoles().name()));
         System.out.println(authorities);
         return authorities;
     }

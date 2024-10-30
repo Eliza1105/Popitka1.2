@@ -4,12 +4,11 @@ import holidayservice.entity.Food;
 import holidayservice.repository.FoodRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class FoodService {
     private final FoodRepo foodRepo;
@@ -21,9 +20,7 @@ public class FoodService {
         foodRepo.deleteById(id);
     };
 
-    public double calculateQuantity(String name, int userInput) {
-        Food food = foodRepo.findByName(name).orElseThrow();
-        double unitValue = food.getUnit();
-        return unitValue * userInput;
+    public Food findById(Integer id){
+        return foodRepo.findById(id).get();
     }
 }

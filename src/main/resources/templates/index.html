@@ -28,15 +28,15 @@
                 </a>
             </li>
             <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="menu">
+                <a th:href="@{/alcoholfree}"  class="menu">
                    <span>Безалкогольные напитки</span> </a>
             </li>
             <li>
-                <a href="#" class="menu">
+                <a th:href="@{/alcohol}" class="menu">
                     <span>Алкогольные напитки</span></a>
             </li>
             <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="menu">
+                <a th:href="@{/coctails}" class="menu">
                     <span>Коктейли</span> </a>
             </li>
             <li>
@@ -57,22 +57,22 @@
             </li>
             <li>
                 <a href="#users" data-bs-toggle="collapse" class="menu">
-                     <span>Users</span> </a>
+                     <span>Пользователи</span> </a>
                 <ul class="collapse nav flex-column ms-1" id="users" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a th:href="@{/userList}" class="submenu"> <span>Users list</span></a>
+                        <a th:href="@{/userList}" class="submenu"> <span>Список пользователей</span></a>
                     </li>
                     <li>
-                        <a th:href="@{/login}" class="submenu"> <span>SignIn</span></a>
+                        <a th:href="@{/login}" class="submenu"> <span>Вход</span></a>
                     </li>
                     <li>
-                        <a th:href="@{/registration}" class="submenu"> <span>SignUp</span></a>
+                        <a th:href="@{/registration}" class="submenu"> <span>Регистрация</span></a>
                     </li>
                 </ul>
             </li>
         </ul>
         <form th:action="@{/logout}" th:method="post">
-            <input type="submit" value="Sing out"/>
+            <button type="submit">Выход</button>
         </form>
     </div>
 </div>
