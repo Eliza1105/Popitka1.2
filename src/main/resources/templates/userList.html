@@ -27,8 +27,8 @@
                     <td th:text="${user.id}"></td>
                     <td th:text="${user.username}"></td>
                     <td th:text="${user.roles}"></td>
-                    <td> <a th:href="@{/user_save/{id}(id=${user.id})}">Изменить</a></td>
-                    <td> <a th:href="@{/delete_user/{id}(id=${user.id})}">Удалить</a></td>
+                    <td> <a th:href="@{/user_save/{id}(id=${user.id})}" class="delete-link">Изменить</a></td>
+                    <td> <a th:href="@{/delete_user/{id}(id=${user.id})}" class="delete-link">Удалить</a></td>
                 </tr>
                 </tbody>
             </table>

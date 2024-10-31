@@ -7,7 +7,7 @@
   }
   #side{
   min-height: 100vh;
-  background-color: #FFE4B5;
+  background-color: #F2E8C9;
 
   }
  
@@ -30,7 +30,7 @@
   font-weight: 700;
   }
   .submenu{
-    color: rgba(33, 135, 33, 0.782);
+    color: #3EB489;
     text-align: right;
     text-decoration: none;
     line-height: 50px;
@@ -45,12 +45,13 @@
   button{
     width: 120px;
     height: 80px;
-    color: #8A2BE2;
-    background-color: rgba(50, 205, 50, 0.782);
+    color: #288160;
+    background-color:  #CCCCFF;
     text-align: center;
-    font-weight: 500;
     font-family: fantasy;
     border-radius: 15%;
+    font-weight: 500;
+    font-size: larger;
     box-shadow: 2px 2px 4px;
 }
   .container {
@@ -90,7 +91,7 @@
 
   .prev:hover,
   .next:hover {
-    background-color: #8A2BE2;
+    background-color: #A2A2D0;
     color: #FFE4B5;
   }
   
@@ -105,7 +106,7 @@
   .caption-container {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    background-color:rgba(50, 205, 50, 0.782);
+    background-color:#3EB489;
     padding: 2px 16px;
     color: #FFE4B5;
   }

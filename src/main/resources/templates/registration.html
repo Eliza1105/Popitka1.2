@@ -8,13 +8,12 @@
 
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-
+            <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
 <h2>Регистрация</h2>
 
 <form th:action="@{/registration}" th:method="post" th:object="${user}">
@@ -33,5 +32,6 @@
           <button type="submit" >Зарегистрироваться</button>
           </div>
   </form>
+
   </body>
   </html>

@@ -21,7 +21,7 @@
 <h1>Список наших блюд.</h1>
     <h2>
         Вы можете внести свои любимые блюда
-        <a th:href="@{/create_food}">  ТУТ </a>
+        <a th:href="@{/create_food}" class="delete-link">  ТУТ </a>
 
     </h2>
 <table>
@@ -35,8 +35,8 @@
         <td th:utext="${food.description}"></td>
         <td th:utext="${food.unit}"></td>
         <td><img th:src="${food.link}"></td>
-        <td> <a th:href="@{/food_save/{id}(id=${food.id})}">Изменить</a></td>
-        <td> <a th:href="@{/delete_food/{id}(id=${food.id})}">Удалить</a></td>
+        <td> <a th:href="@{/food_save/{id}(id=${food.id})}" class="delete-link">Изменить</a></td>
+        <td> <a th:href="@{/delete_food/{id}(id=${food.id})}" class="delete-link">Удалить</a></td>
     </tr>
     </tbody>
 </table>

@@ -39,8 +39,8 @@ p{
 .button{
   width: 200px;
   height: 120px;
-  background-color: rgba(50, 205, 50, 0.782);
-  color: #FFFACD;
+  background-color: #FFE4B5;
+  color: #288160;
   text-align: center;
   font-family: fantasy;
   border-radius: 15%;
@@ -49,11 +49,11 @@ p{
   left: 70%;
     box-shadow: 2px 2px 4px
 }
-.button:hover {background: #8A2BE2;}
+.button:hover {background: #CCCCFF;}
 
 .res{
   display: inline-block; 
-  color: #8A2BE2;
+  color: #7b14db;
   text-align: center;
   font-size: large;
   font-family: fantasy;
@@ -61,7 +61,7 @@ p{
   display: block;
   width: 300px;
   height: 90px;
-  border: 10px dotted rgba(50,205,50,0.782);
+  border: 7px solid #288160;
 margin-left: 35%;
 margin-top: 5%;
 }

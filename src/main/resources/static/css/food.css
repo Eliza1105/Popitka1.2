@@ -32,7 +32,7 @@ table {
     th:nth-child(6) {border-right: 2px solid #FFE4B5;}
     th:nth-child(7) {border-right: 2px solid #FFE4B5;}
     td {
-    background-color: #8634d365;
+    background-color: #ccccffbb;
     vertical-align: middle;
     padding: 10px;
     font-size: 14px;
@@ -76,10 +76,33 @@ table {
         border-right: 2px solid #8A2BE2;
                      }
 a{
-  font-size: large;
+  font-size: larger;
 }
 
 img{
     width: 180px;
     height: 120px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.form-label {
+    color: #288160; 
+    font-size: larger;
+    font-weight: 700;
+    margin-left: 2%;
+}
+
+.delete-link {
+    color: #288160; 
+    text-decoration: none; 
+    font-size: larger;
+    font-weight: 700 ;
+    text-align: center;
+}
+
+.delete-link:hover {
+    color: #174e3a; 
 }
